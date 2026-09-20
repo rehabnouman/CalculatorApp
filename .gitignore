@@ -1,0 +1,13 @@
+# Compiled output
+out/
+bin/
+*.class
+
+# IDE & Editor settings
+.idea/
+*.iml
+.DS_Store
+
+# JavaFX SDK local zips
+openjfx*.zip
+javafx-sdk*/

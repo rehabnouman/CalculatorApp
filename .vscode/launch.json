@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run CalculatorApp",
+      "request": "launch",
+      "mainClass": "CalculatorApp",
+      "vmArgs": "--module-path \"C:/Users/PMLS/Downloads/javafx-sdk-21.0.5/lib\" --add-modules javafx.controls"
+    }
+  ]
+}
