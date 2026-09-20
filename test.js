@@ -1,4 +1,4 @@
-// Automated Unit Test Suite for GitHub Actions CI Pipeline (Failed CI Test Demonstration)
+// Automated Unit Test Suite for GitHub Actions CI Pipeline (Fixed Successful Test Suite)
 const fs = require('fs');
 
 console.log('🧪 Starting Automated Software Engineering CI Checks...');
@@ -12,19 +12,28 @@ if (!htmlContent.includes('id="display"') || !htmlContent.includes('id="expressi
 }
 console.log('✅ HTML validation passed!');
 
-// Test 2: Intentional Failure Demonstration
-console.log('Step 2: Testing Mathematical Logic (Intentional Failure)...');
+// Test 2: Mathematical Evaluation Engine Test
+console.log('Step 2: Testing Mathematical Logic...');
 function evaluateMath(first, op, second) {
     if (op === '+') return first + second;
-    return 0;
+    if (op === '-') return first - second;
+    if (op === '*') return first * second;
+    if (op === '/') {
+        if (second === 0) throw new Error('Cannot divide by zero');
+        return first / second;
+    }
+    throw new Error('Invalid Operator');
 }
 
 try {
-    // Intentional error assertion: 5 + 3 is 8, but we expect 999 to force a CI failure
-    if (evaluateMath(5, '+', 3) !== 999) {
-        throw new Error('Intentional Test Error: 5 + 3 does not equal 999!');
-    }
+    if (evaluateMath(5, '+', 3) !== 8) throw new Error('Addition failed');
+    if (evaluateMath(10, '-', 4) !== 6) throw new Error('Subtraction failed');
+    if (evaluateMath(6, '*', 7) !== 42) throw new Error('Multiplication failed');
+    if (evaluateMath(20, '/', 5) !== 4) throw new Error('Division failed');
+    console.log('✅ Math logic unit tests passed!');
 } catch (err) {
-    console.error(`❌ CI Test Failed as expected: ${err.message}`);
+    console.error(`❌ Unit Test Failed: ${err.message}`);
     process.exit(1);
 }
+
+console.log('🎉 All Automated CI Checks Passed Successfully!');
