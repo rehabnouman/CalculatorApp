@@ -1,9 +1,9 @@
-// Automated Unit Test Suite for GitHub Actions CI Pipeline
+// Automated Unit Test Suite for GitHub Actions CI Pipeline (Fixed Successful Test Suite)
 const fs = require('fs');
 
 console.log('🧪 Starting Automated Software Engineering CI Checks...');
 
-// Test 1: Verify HTML structure and required UI elements
+// Test 1: Verify HTML structure
 console.log('Step 1: Validating HTML layout...');
 const htmlContent = fs.readFileSync('index.html', 'utf-8');
 if (!htmlContent.includes('id="display"') || !htmlContent.includes('id="expression"')) {
@@ -26,7 +26,6 @@ function evaluateMath(first, op, second) {
 }
 
 try {
-    // Basic test cases
     if (evaluateMath(5, '+', 3) !== 8) throw new Error('Addition failed');
     if (evaluateMath(10, '-', 4) !== 6) throw new Error('Subtraction failed');
     if (evaluateMath(6, '*', 7) !== 42) throw new Error('Multiplication failed');
