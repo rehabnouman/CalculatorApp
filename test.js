@@ -1,4 +1,4 @@
-// Automated Unit Test Suite for Scientific Calculator App
+// Automated Unit Test Suite for Scientific Calculator App (Passed CI Test Suite)
 const fs = require('fs');
 
 console.log('🧪 Starting Automated Software Engineering CI Checks...\n');
@@ -20,15 +20,23 @@ if ((5 + 3) !== 8) {
 }
 console.log('✅ Test Case 2 Passed: Addition logic correct.');
 
-// --- Test Case 3: Intentional Failure Test Case for Screenshot ---
-console.log('Test Case 3: Testing Subtraction Assertion (10 - 4)...');
+// --- Test Case 3: Subtraction Test Case ---
+console.log('Test Case 3: Testing Subtraction (10 - 4 = 6)...');
 const subtractionResult = 10 - 4;
-const expectedValue = 999; // INTENTIONAL ERROR FOR FAILED CI SCREENSHOT
+const expectedValue = 6; // FIXED: Correct expected value
 
 if (subtractionResult !== expectedValue) {
-    console.error(`❌ Test Case 3 FAILED: Subtraction (10 - 4) expected ${expectedValue}, but got ${subtractionResult}`);
-    console.error('🚨 CI BUILD FAILED: Assertion Error in Test Case 3!');
-    process.exit(1); // Triggers GitHub Actions Failed CI Run (❌)
+    console.error(`❌ Test Case 3 Failed: Subtraction (10 - 4) expected ${expectedValue}, but got ${subtractionResult}`);
+    process.exit(1);
 }
+console.log('✅ Test Case 3 Passed: Subtraction logic correct.');
 
-console.log('✅ Test Case 3 Passed!');
+// --- Test Case 4: Multiplication Test Case ---
+console.log('Test Case 4: Testing Multiplication (6 * 7 = 42)...');
+if ((6 * 7) !== 42) {
+    console.error('❌ Test Case 4 Failed: 6 * 7 did not equal 42!');
+    process.exit(1);
+}
+console.log('✅ Test Case 4 Passed: Multiplication logic correct.');
+
+console.log('\n🎉 All Automated Unit Test Cases Passed Successfully!');
